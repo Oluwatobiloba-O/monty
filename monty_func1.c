@@ -54,7 +54,7 @@ void pop_top_node(stack_t **stack_head, unsigned int line_number)
 	stack_t *tmp;
 
 	if (stack_head == NULL || *stack_head == NULL)
-		more_err(7, line_number);
+		more_error(7, line_number);
 
 	tmp = *stack_head;
 	*stack_head = tmp->next;
@@ -71,6 +71,6 @@ void pop_top_node(stack_t **stack_head, unsigned int line_number)
 void print_top_node(stack_t **stack_head, unsigned int line_number)
 {
 	if (stack_head == NULL || *stack_head == NULL)
-		more_err(6, line_number);
+		more_error(6, line_number);
 	printf("%d\n", (*stack_head)->n);
 }

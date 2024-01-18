@@ -13,14 +13,10 @@ int main(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
-		error(1);
-        return EXIT_FAILURE;
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
 	}
-
-    if (!nput_file_path(argv[1]))
-    {
-        return EXIT_FAILURE;
-    }
+	open_file(argv[1]);
 	free_nodes();
 	return (0);
 }
@@ -47,9 +43,9 @@ stack_t *allocate_node(int n)
 }
 
 /**
- * release_nodes - Frees nodes.
+ * free_nodes - Frees nodes.
  */
-void release_nodes(void)
+void free_nodes(void)
 {
 	while (head != NULL)
     {
@@ -67,24 +63,21 @@ void release_nodes(void)
  */
 void append_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
 {
+	stack_t *tail;
+
 	if (new_node == NULL || *new_node == NULL)
-    {
-        error((3), ln);
-        return;
-    }
-    
-    if (head == NULL)
-    {
-        head = *new_node;
-        return;
-    }
+		exit(EXIT_FAILURE);
 
-    stack_t *tail = head;
-    while (tail->next != NULL)
-    {
-        tail = tail->next;
-    }
+	if (head == NULL)
+	{
+		head = *new_node;
+		return;
+	}
+	
+	tail = head;
+	while (tail->next != NULL)
+		tail = tail->next;
 
-    tail->next = *new_node;
-    (*new_node)->prev = tail;
+	tail->next = *new_node;
+	(*new_node)->prev = tail;
 }

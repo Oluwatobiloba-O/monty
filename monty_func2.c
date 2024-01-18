@@ -15,7 +15,7 @@ void nop_op(stack_t **stack, unsigned int line_number)
 /**
  * swap_top_nodes - Swaps the top two nodes.
  * @stack_head: Pointer to the top node of the stack.
- * @line_number: line number of of the opcode.
+ * @line_number: line number of the opcode.
  */
 void swap_top_nodes(stack_t **stack_head, unsigned int line_number)
 {
@@ -36,7 +36,7 @@ void swap_top_nodes(stack_t **stack_head, unsigned int line_number)
 /**
  * add_top_nodes - Adds the top two elements of the stack.
  * @stack: Pointer to the top node of the stack.
- * @line_number:  line number of of the opcode.
+ * @line_number:  line number of the opcode.
  */
 void add_top_nodes(stack_t **stack, unsigned int line_number)
 {
@@ -85,7 +85,7 @@ void div_top_nodes(stack_t **stack_head, unsigned int line_number)
 	int divide;
 
 	if (stack_head == NULL || *stack_head == NULL || (*stack_head)->next == NULL)
-		more_err(8, line_number, "div");
+		more_error(8, line_number, "div");
 
 	if ((*stack_head)->n == 0)
 		more_error(9, line_number);

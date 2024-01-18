@@ -1,7 +1,5 @@
-monty.h
-
-#ifndef MONTY_H_INCLUDED
-#define MONTY_H_INCLUDED
+#ifndef MONTY_H
+#define MONTY_H
 
 #define _GNU_SOURCE
 #include <stdio.h>
@@ -53,7 +51,7 @@ void find_func(char *opcode, char *value, int line_index, int parsing_format);
 
 /*Stack operations*/
 stack_t *allocate_node(int n);
-void release_nodes(void);
+void free_nodes(void);
 void print_stack(stack_t **, unsigned int);
 void push_to_stack(stack_t **, unsigned int);
 void append_to_queue(stack_t **, unsigned int);
@@ -83,4 +81,4 @@ void more_error(int error_code, ...);
 void string_error(int error_code, ...);
 void rotr(stack_t **, unsigned int);
 
-#endif // MONTY_H_INCLUDED
+#endif

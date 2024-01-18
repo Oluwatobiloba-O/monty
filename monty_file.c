@@ -109,18 +109,16 @@ void find_func(char *opcode, char *value, int line_index, int parsing_format)
 	};
 	
 	if (opcode[0] == '#')
+		return;
+	
+	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
-        return;
-    }
-
-    for (int i = 0; func_list[i].opcode != NULL; i++)
-	{
-        if (strcmp(opcode, func_list[i].opcode) == 0)
+		if (strcmp(opcode, func_list[i].opcode) == 0)
 		{
-            call_fun(func_list[i].f, opcode, value, line_index, parsing_format);
-            return;
-        }
-    }
+			call_fun(func_list[i].f, opcode, value, line_index, parsing_format);
+			flag = 0;
+		}
+	}
 	if (flag == 1)
 	error(3, line_index, opcode);
 }
@@ -157,11 +155,13 @@ void call_fun(op_func func, char *op, char *val, int line_index, int parsing_for
 			if (isdigit(val[i]) == 0)
 				error(5, line_index);
 		}
-		node = create_node(atoi(val) * flag);
+		node = allocate_node(atoi(val) * flag);
+
 		if (parsing_format == 0)
 			func(&node, line_index);
+
 		if (parsing_format == 1)
-			add_to_queue(&node, line_index);
+			append_to_queue(&node, line_index);
 	}
 	else
 		func(&head, line_index);

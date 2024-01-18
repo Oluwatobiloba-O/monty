@@ -3,7 +3,7 @@
 /**
  * mul_nodes -  multiply the top two elements of the stack.
  * @stack_head: Pointer to the top node of the stack.
- * @line_number: the line number of of the opcode.
+ * @line_number: the line number of the opcode.
  */
 void mul_top_nodes(stack_t **stack_head, unsigned int line_number)
 {
@@ -23,7 +23,7 @@ void mul_top_nodes(stack_t **stack_head, unsigned int line_number)
 /**
  * mod_top_nodes - cal modulo of the top two elements of the stack.
  * @stack_head: Pointer to the top node of the stack.
- * @line_number: line number of of the opcode.
+ * @line_number: line number of the opcode.
  */
 void mod_top_nodes(stack_t **stack_head, unsigned int line_number)
 {
@@ -35,7 +35,7 @@ void mod_top_nodes(stack_t **stack_head, unsigned int line_number)
 
 
 	if ((*stack_head)->n == 0)
-		more_err(9, line_number);
+		more_error(9, line_number);
 	(*stack_head) = (*stack_head)->next;
 	modulo = (*stack_head)->n % (*stack_head)->prev->n;
 	(*stack_head)->n = modulo;
