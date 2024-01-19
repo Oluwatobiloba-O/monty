@@ -31,20 +31,18 @@ void read_file(FILE *file_stream)
 	char *line_content = NULL;
 	size_t line_length = 0;
 
-	while (getline(&line_content, &line_length, file_stream) != -1) 
+	while (getline(&line_content, &line_length, file_stream) != -1)
 	{
-		parsing_format = 
+		parsing_format =
 		parse_line(line_content, line_index, parsing_format);
-
-        line_index++;
-    }
-
+		line_index++;
+	}
 	free(line_content);
 }
 
 
 /**
- * parse_line - Parses a line of Monty bytecode and 
+ * parse_line - Parses a line of Monty bytecode and
  * determines the appropriate action.
  * @line_content: The line of bytecode to parse.
  * @line_index: The line number of the bytecode line.
@@ -79,7 +77,7 @@ int parse_line(char *line_content, int line_index, int parsing_format)
  * find_func - find the appropriate function for the opcode
  * @opcode: opcode
  * @value: argument of opcode
- * @parsing_format:  The current storage format 
+ * @parsing_format:  The current storage format
  * (0 for stack, 1 for queue).
  * @line_index: The line number where the instruction is located.
  * Return: void
@@ -107,10 +105,8 @@ void find_func(char *opcode, char *value, int line_index, int parsing_format)
 		{"rotr", rotr},
 		{NULL, NULL}
 	};
-	
 	if (opcode[0] == '#')
 		return;
-	
 	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
 		if (strcmp(opcode, func_list[i].opcode) == 0)
@@ -130,11 +126,12 @@ void find_func(char *opcode, char *value, int line_index, int parsing_format)
  * @op: The name of the instruction being executed.
  * @val: The argument for the instruction, if any.
  * @line_index: line numeber for the instruction.
- * @parsing_format: Format specifier. 
+ * @parsing_format: Format specifier.
  * If 0 Nodes will be entered as a stack.
  * if 1 nodes will be entered as a queue.
  */
-void call_fun(op_func func, char *op, char *val, int line_index, int parsing_format)
+void call_fun(op_func func, char *op, char *val,
+		int line_index, int parsing_format)
 {
 	stack_t *node;
 	int flag;

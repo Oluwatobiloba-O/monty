@@ -1,16 +1,16 @@
 #include "monty.h"
 
 /**
- * @error_code: The error codes are numbered 1 - 11.
- * error function - Handles errors with codes 1-5 and prints
+ * error - Handles errors with codes 1-5 and prints
  * error messages to stderr, frees allocated memory using
  * free_nodes() and exit program with EXIT_FAILURE.
- * 
- * more_error function - Handles errors with codes 6-9 when
+ * @error_code: The error codes are numbered 1 - 11.
+ * For
+ * more_error - Handles errors with codes 6-9 when
  * the stack it empty for pint, the stack it empty for pop,
  * When stack is too short for operation and Division by zero.
- * 
- * string_error function - Handles errors specifically related
+ * For
+ * string_error - Handles errors specifically related
  * to string operations (codes 10-11). when the number inside
  * a node is outside ASCII bounds and when the stack is empty.
  */

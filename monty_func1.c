@@ -6,7 +6,8 @@
  * @new_node: Pointer to the new node.
  * @line_num: line number of of the opcode.
  */
-void push_to_stack(stack_t **new_node, __attribute__((unused))unsigned int line_num)
+void push_to_stack(stack_t **new_node,
+		__attribute__((unused))unsigned int line_num)
 {
 	stack_t *tmp;
 

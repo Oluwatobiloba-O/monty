@@ -1,5 +1,4 @@
 #include "monty.h"
-
 stack_t *head = NULL;
 
 /**
@@ -31,11 +30,10 @@ stack_t *allocate_node(int n)
 	stack_t *node = malloc(sizeof(stack_t));
 
 	if (node == NULL)
-    {
-        error(4);
-        return NULL;
-    }
-
+	{
+		error(4);
+		return (NULL);
+	}
 	node->next = NULL;
 	node->prev = NULL;
 	node->n = n;
@@ -48,10 +46,10 @@ stack_t *allocate_node(int n)
 void free_nodes(void)
 {
 	while (head != NULL)
-    {
-        stack_t *tmp = head;
-        head = head->next;
-        free(tmp);
+	{
+		stack_t *tmp = head;
+		head = head->next;
+		free(tmp);
 	}
 }
 
@@ -61,7 +59,9 @@ void free_nodes(void)
  * @new_node: Pointer to the new node.
  * @ln: line number of the opcode.
  */
-void append_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
+
+void append_to_queue(stack_t **new_node,
+		__attribute__((unused))unsigned int ln)
 {
 	stack_t *tail;
 
@@ -73,7 +73,6 @@ void append_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
 		head = *new_node;
 		return;
 	}
-	
 	tail = head;
 	while (tail->next != NULL)
 		tail = tail->next;

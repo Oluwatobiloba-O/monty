@@ -19,11 +19,12 @@ void print_char(stack_t **stack_head, unsigned int line_number)
 }
 
 /**
- * print_str - Prints a string.
+ * print_strg - Prints a string.
  * @stack_head: Pointer to the top node of the stack.
  * @line_number: the line number of the opcode.
  */
-void print_strg(stack_t **stack_head, __attribute__((unused))unsigned int ln)
+void print_strg(stack_t **stack_head, __attribute__((unused))
+		unsigned int line_number)
 {
 	int strg;
 	stack_t *tmp;
@@ -51,7 +52,8 @@ void print_strg(stack_t **stack_head, __attribute__((unused))unsigned int ln)
  * @stack_head: Pointer to the top node of the stack.
  * @line_number: the line number of of the opcode.
  */
-void rotl(stack_t **stack_head, __attribute__((unused))unsigned int ln)
+void rotl(stack_t **stack_head, __attribute__((unused))
+		unsigned int line_number)
 {
 	stack_t *tmp;
 
@@ -75,7 +77,8 @@ void rotl(stack_t **stack_head, __attribute__((unused))unsigned int ln)
  * @stack_head: Pointer to the top node of the stack.
  * @line_number: the line number of the opcode.
  */
-void rotr(stack_t **stack_head, __attribute__((unused))unsigned int ln)
+void rotr(stack_t **stack_head, __attribute__((unused))
+		unsigned int line_number)
 {
 	stack_t *tmp;
 
