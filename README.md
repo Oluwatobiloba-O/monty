@@ -4,4 +4,4 @@ Team PROJECT
 
 Done By 
 
-Lawal Mustapha Oluwatobi and Oluwatobiloba Otun
+Oluwatobiloba Otun
